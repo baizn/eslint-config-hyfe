@@ -36,3 +36,7 @@ npm link eslint-config-hyfe
 ```
 
 当然，也可以直接在.eslintrc文件中添加规则覆盖该配置。
+
+### npm 地址
+
+[基于Eslint的扫描规则](https://www.npmjs.com/package/eslint-config-hyfe)
