@@ -1,0 +1,24 @@
+{
+  "name": "eslint-config-hyfe",
+  "version": "0.0.1",
+  "description": "基于eslint的前端代码扫描规则",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baizn/eslint-config-hyfe.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "hyfe"
+  ],
+  "author": "baizn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/baizn/eslint-config-hyfe/issues"
+  },
+  "homepage": "https://github.com/baizn/eslint-config-hyfe#readme"
+}
