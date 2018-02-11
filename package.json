@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-hyfe",
-  "version": "0.0.1",
+  "version": "0.0.8",
   "description": "基于eslint的前端代码扫描规则",
   "main": "index.js",
   "scripts": {

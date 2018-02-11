@@ -40,3 +40,14 @@ npm link eslint-config-hyfe
 ### npm 地址
 
 [基于Eslint的扫描规则](https://www.npmjs.com/package/eslint-config-hyfe)
+
+### 更新记录
+#### 2018-02-11
+- no-debugger：由error修改为warn
+- keyword-spacing：由off修改为warn
+- space-before-function-paren：新增该规则，不允许function后面留空格
+- keyword-spacing：新增该规则，关键词后面留空格，if、for和while例外
+- no-invalid-this：由error改为warn
+
+#### 2017-11-10
+- array-bracket-spacing：禁止数组两端出现空格
