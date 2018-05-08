@@ -44,7 +44,11 @@ const MAX_LINES_LEN = 100
  * @date: 2016-10-17
  */
 module.exports = {
-  extends: 'eslint:recommended',
+  extends: [
+    'eslint:recommended',
+    'standard',
+    'standard-react'
+  ],
   env: {
     node: true,
     es6: true,
@@ -61,7 +65,7 @@ module.exports = {
     'no-implicit-coercion': OFF,
 
     // warn规则
-    "no-debugger": WARN,
+    'no-debugger': WARN,
     // 建议使用2个空格缩进
     'indent': [WARN, SPACE_NUM],
     // 不建议出现尾逗号
@@ -112,25 +116,14 @@ module.exports = {
       * import和from不用遵循此规则，所以只警告
       */
     'keyword-spacing': [WARN, {
-      'before': true,
-      'after': false,
       'overrides': {
-        'return': {
+        'if': {
           'after': true
         },
-        'import': {
+        'for': {
           'after': true
         },
-        'from': {
-          'after': true
-        },
-        'case': {
-          'after': true
-        },
-        'else': {
-          'after': true
-        },
-        'const': {
+        'while': {
           'after': true
         }
       }
@@ -148,13 +141,13 @@ module.exports = {
 
     // error规则
     // function后不留空格
-    "space-before-function-paren": [ERROR, "never"],
+    'space-before-function-paren': [ERROR, 'never'],
     // 关键词后面留空格，if、for和while例外
-    "keyword-spacing": [ERROR, { 
-      "overrides": { 
-        "if": { "after": false }, 
-        "for": { "after": false }, 
-        "while": { "after": false } 
+    'keyword-spacing': [ERROR, { 
+      'overrides': { 
+        'if': { 'after': false }, 
+        'for': { 'after': false }, 
+        'while': { 'after': false } 
       }
     }],
     // 建议使用单引号
@@ -192,11 +185,11 @@ module.exports = {
     /**
      * 禁止出现多行字符串
      * 错误示例：
-     * var x = "Line 1 \
-         Line 2"
+     * var x = 'Line 1 \
+         Line 2'
      * 正确示例：
-     *  var x = "Line 1\n"
-         + "Line 2"
+     *  var x = 'Line 1\n'
+         + 'Line 2'
      */
     'no-multi-str': ERROR,
     // 禁止对原生对象赋值
@@ -213,7 +206,7 @@ module.exports = {
     'no-sequences': ERROR,
     // 禁止不必要的字符串拼接，如'ab' + 'd'
     'no-useless-concat': ERROR,
-    // 禁止不必要的转义，如"\'"
+    // 禁止不必要的转义，如'\''
     'no-useless-escape': ERROR,
     // 禁止使用with语句
     'no-with': ERROR,
@@ -280,6 +273,60 @@ module.exports = {
     }],
 
     // 禁止function后出现空格
-    'no-spaced-func': ERROR
+    'no-spaced-func': ERROR,
+
+    // ------------------React Rules-----------------------//
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
+    'react/prefer-stateless-function': [OFF],
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-prop-types.md
+    'react/forbid-prop-types': [WARN, {
+      'forbid': [ // This rule encourages prop types that more specifically document their usage.
+        'any',
+        'array', // use arrayOf instead (https://facebook.github.io/react/docs/typechecking-with-proptypes.html)
+        'object' // use shape instead (https://facebook.github.io/react/docs/typechecking-with-proptypes.html)
+      ]
+    }],
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md
+    'react/no-find-dom-node': [OFF],
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-children-prop.md
+    'react/no-children-prop': [OFF],
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-boolean-value.md
+    'react/jsx-boolean-value': [ERROR, 'always'],
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
+    'react/jsx-filename-extension': [OFF],
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-indent.md
+    'react/jsx-indent': [OFF],
+    // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/sort-comp.md
+    'react/sort-comp': [ERROR, {
+      'order': [
+        'static-methods',
+        'lifecycle',
+        'everything-else',
+        'render'
+      ],
+      'groups': {
+        'lifecycle': [
+          'displayName',
+          'propTypes',
+          'contextTypes',
+          'childContextTypes',
+          'mixins',
+          'statics',
+          'defaultProps',
+          'constructor',
+          'getDefaultProps',
+          'getInitialState',
+          'state',
+          'getChildContext',
+          'componentWillMount',
+          'componentDidMount',
+          'componentWillReceiveProps',
+          'shouldComponentUpdate',
+          'componentWillUpdate',
+          'componentDidUpdate',
+          'componentWillUnmount'
+        ]
+      }
+    }]
   }
 }
