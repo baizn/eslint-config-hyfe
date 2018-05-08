@@ -1,7 +1,7 @@
 # eslint-config-hyfe
 基于eslint配置的前端代码扫描规则，适用于海云数据前端团队。
 
-##使用方式
+## 使用方式
 ```
 $ npm install eslint-config-hyfe --save-dev
 // 或使用yarn安装
